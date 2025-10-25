@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="alphabet.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Hall Pass</title>
+</head>
+<body>
+  <div id="container">
+    <svg id="frameContainer">
+      <rect id="leftBar"></rect>
+      <rect id="rightBar"></rect>
+      <rect id="frame"></rect>
+    </svg>
+    <svg id="grid"></svg>
+  </div>
+  <div id="buttons">
+    <span id="readMe" onclick="$('#readMeOverlay').css('visibility', 'visible');">&#10042;&#xFE0E;</span>
+    <div class="overlay" id="readMeOverlay">
+      <div class="overlay-content">
+        <p>My dreams exist in liminal spaces. I might find myself in a stairwell, under a bridge, behind a fence, on a balcony, through a peephole, in a taxi cab, a closet, or a tunnel. My dreams are anchored by a rotation of these flimsy backdrops. Never a destination, always a space to be passed through, or a threshold to be crossed over. I think of these spaces as hallways.</p>
+        <p>Many of the questions I ask about dreaming also apply to being awake. Stop and ask yourself <b>how</b> you are reading this sentence, <b>how</b> your hand moves a mouse, <b>how</b> your eyes dart across a screen. I am no more able to explain how I embody my waking &lsquo;self&rsquo; than I am able to explain the actions of my dream &lsquo;self&rsquo;. Much like my dream locales are merely illusory channels through which I pass, are we not just series of electric pulses darting through hallways of the unknown?</p>
+        <p>I propose the metaphor of a &lsquo;hall pass&rsquo; — a suggestion of authority, an unenforceable sign — to reframe my dreams as spaces of agency. Thus, my dream &lsquo;self&rsquo; is not a prisoner, but a traveler with permission.</p>
+        <p>As we move through cities, we are bombarded by signs: signs underground telling us how to navigate, signs of love written by planes in the sky, signs in store windows that create desire. These signs are composed of words: words with obligations, words of warning or instruction, words often ignored.</p>
+        <p>This webpage draws visual inspiration from hanging LED displays in New York City subway stations with escalators. It emulates their circle-composed typeface and faded traffic-light color scheme. The words that flash across these subway signs are not to be interpreted, but followed. This webpage, however, reframes the instructional sign as a storytelling device, as a kind of hall pass for my dream &lsquo;self&rsquo;, and displays lines from a dream-poem that explores themes of dissociation.</p>
+        <p>I invite the viewer to linger for a moment in this space and to tug at the walls of their internet browser, to zoom in and out, to try and peek behind the curtain into a space that has no rules, that might be an allegory for life, or might mean nothing at all.</p>
+        <input type="button" class="butt" onclick="$('#readMeOverlay').css('visibility', 'hidden');" value="Close">
+      </div>
+    </div>
+    <span id="poem" onclick="$('#poemOverlay').css('visibility', 'visible');">&#182;&#xFE0E;</span>
+    <div class="overlay" id="poemOverlay">
+      <div class="overlay-content">
+        <text>traveling with a suitcase filled with the things you left in your parents&rsquo; basement</text><br>
+        <text>unpacking yourself on the train</text><br>
+        <text>Passengers pass around pieces of your past</text><br>
+        <text>You miss your stop.</text><br>
+        <text>the trains arrive and the announcements grow longer each time</text><br>
+        <text>lay back and watch the graffiti twinkle on the tunnel walls</text><br>
+        <text>soldiers multiply in the windows&rsquo; reflections and they smile at you</text><br>
+        <text>You look at me and tell me you don&rsquo;t know who i am but it is a pleasure to meet you, stranger.</text><br>
+        <text>I take you home. I ride the rails to pass the time.</text><br>
+        <text>I make friends with the other kids and no one asks where we&rsquo;re going.</text><br>
+        <text>I get off at the next stop because my clothes start to unravel</text><br>
+        <text>You sleep all afternoon to remember who i am.</text><br><br>
+        <input type="button" class="butt" onclick="$('#poemOverlay').css('visibility', 'hidden');" value="Close">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
