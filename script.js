@@ -17,7 +17,8 @@ const poem = [
   "I TAKE YOU HOME. I RIDE THE RAILS TO PASS THE TIME.",
   "I MAKE FRIENDS WITH THE OTHER KIDS AND NO ONE ASKS WHERE WE'RE GOING.",
   "I GET OFF AT THE NEXT STOP BECAUSE MY CLOTHES START TO UNRAVEL",
-  "YOU SLEEP ALL AFTERNOON TO REMEMBER WHO I AM."
+  "YOU SLEEP ALL AFTERNOON TO REMEMBER WHO I AM.",
+  "",
 ]
 
 let f1 = false;
@@ -80,7 +81,7 @@ async function generateGrid(circleRadius) {
 
     if (threshold >= 8) { fuckShitUp(); }
 
-    await sleep(10000);
+    await sleep(8000);
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         const currentCircle = document.getElementById(`${j}_${rows - i - 1}`);
@@ -106,7 +107,13 @@ resetGrid = (circleRadius) => {
 
 // Function to update grid on window resize
 updateGrid = () => {
-  const circleRadius = 2.5;
+  let circleRadius;
+
+  if (window.innerWidth >= 1200) { circleRadius = 3.0; }
+  else if (window.innerWidth >= 992) { circleRadius = 2.5; }
+  else if (window.innerWidth >= 768) { circleRadius = 2.0; }
+  else if (window.innerWidth >= 576) { circleRadius = 1.5; }
+  else { circleRadius = 1.0; }
 
   rows = Math.floor(document.getElementById('grid').scrollHeight / (circleRadius * 2));
   cols = Math.floor((window.innerWidth * 0.75) / (circleRadius * 2));
@@ -117,7 +124,6 @@ updateGrid = () => {
   generateGrid(circleRadius);
 
   if ((window.innerWidth / window.screen.width) <= 0.35) {
-  // if ((window.innerWidth * 0.75) < 500) {
     flickering.push(setInterval(flicker, Math.random() * 1000));
   }
   if ((window.innerWidth * 0.75) > 800) {
@@ -138,6 +144,7 @@ flicker = () => {
 writePoetry = (line, circleRadius) => {
   let charCount = line.length;
   let lineCount = 0;
+  const leading = 10;
   let perLine = Math.floor(cols / (letterWidth + 1)) + 1;
 
   let lines = Math.ceil(charCount / perLine);
@@ -150,7 +157,7 @@ writePoetry = (line, circleRadius) => {
 
     // if at end of line, move to next
     if (i % perLine + 1 == perLine) {
-      lineCount = lineCount + letterHeight + 1;
+      lineCount = lineCount + letterHeight + leading;
     }
 
     for (j = 0; j < points; j++) {
@@ -161,7 +168,7 @@ writePoetry = (line, circleRadius) => {
         else if (f2) { f1f = -15; }
         else if (f3) { f1f = j / 5; }
 
-        let y = rows - letterHeight + parseInt(point[1]) - lineCount - buffer - 1 + f1f;
+        let y = rows - letterHeight + parseInt(point[1]) - lineCount - buffer + leading + f1f;
 
         let circle = document.getElementById(`${x}_${y}`);
         
