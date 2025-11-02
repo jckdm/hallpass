@@ -96,10 +96,10 @@ html, body {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 428px) {
+@media only screen and (max-width: 430px) {
     .overlay-content {
         padding: 2vh 4vw 3vh 4vw;
-        font-size: calc(9px + 0.2vw + 0.2vh);
+        font-size: calc(9px + 0.175vw + 0.175vh);
         width: 90vw;
     }
 }
