@@ -149,7 +149,7 @@ writePoetry = (line, circleRadius) => {
 
   let lines = Math.ceil(charCount / perLine);
 
-  let buffer = Math.floor((rows - (lines * letterHeight)) / 2);
+  let buffer = Math.floor((rows - (lines * letterHeight) - ((lines - 1) * leading)) / 2);
 
   for (i = 0; i < charCount; i++) {
     let letter = alphabet[line[i]];
@@ -168,7 +168,7 @@ writePoetry = (line, circleRadius) => {
         else if (f2) { f1f = -15; }
         else if (f3) { f1f = j / 5; }
 
-        let y = rows - letterHeight + parseInt(point[1]) - lineCount - buffer + leading + f1f;
+        let y = rows - letterHeight + parseInt(point[1]) - lineCount - buffer - 1 + f1f;
 
         let circle = document.getElementById(`${x}_${y}`);
         
